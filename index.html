@@ -3,52 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Story Pulse | Fashion Select Shop</title>
+    <title>Story Pulse | Select Shop</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    
     <style>
-        :root { --bg-color: #ffffff; --text-color: #111111; --accent-color: #007AFF; --card-bg: #f9f9f9; }
+        :root { --main-black: #1a1a1a; --point-blue: #007AFF; --bg-gray: #f5f5f7; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg-color); color: var(--text-color); }
+        body { font-family: 'Noto Sans KR', sans-serif; background: #fff; color: var(--main-black); }
 
-        /* 상단 네비게이션 */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; position: sticky; top: 0; background: #fff; z-index: 1000; border-bottom: 1px solid #eee; }
-        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
-        .nav-menu a { text-decoration: none; color: #333; margin-left: 20px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; }
-        .cart-icon { font-size: 1.3rem; margin-left: 20px; cursor: pointer; }
+        header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; sticky; top:0; background:#fff; z-index:100; }
+        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -1px; }
 
-        /* 상단 원형 카테고리/노트 섹션 */
-        .top-section { display: flex; justify-content: center; gap: 40px; padding: 60px 5%; background: #fff; text-align: center; }
-        .circle-item { width: 220px; }
-        .circle-img { width: 180px; height: 180px; border-radius: 50%; background: #eee; margin: 0 auto 15px; overflow: hidden; }
-        .circle-img img { width: 100%; height: 100%; object-fit: cover; }
-        .circle-item h4 { font-size: 1.1rem; margin-bottom: 5px; }
-        .circle-item p { font-size: 0.85rem; color: #888; }
+        /* [섹션 2] 메인 베스트 아이템 (강력 추천) */
+        .best-pick { padding: 60px 5%; background: var(--bg-gray); display: flex; align-items: center; gap: 50px; }
+        .best-img { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .best-img img { width: 100%; display: block; }
+        .best-info { flex: 1; }
+        .badge { background: var(--point-blue); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+        .best-info h2 { font-size: 2.5rem; margin: 20px 0; line-height: 1.2; }
+        .best-info p { font-size: 1.1rem; color: #555; margin-bottom: 30px; line-height: 1.6; }
 
-        /* 상품 섹션 타이틀 */
-        .section-title { padding: 40px 5% 20px; font-size: 1.5rem; font-weight: 700; border-top: 15px solid #f4f4f4; }
-
-        /* 상품 리스트 그리드 */
-        .product-container { background: #f4f4f4; padding: 20px 5% 80px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .product-img { width: 100%; aspect-ratio: 1/1.1; background: #ddd; overflow: hidden; }
-        .product-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-        .product-img:hover img { transform: scale(1.05); }
+        /* [섹션 3] 상품 리스트 그리드 */
+        .list-section { padding: 80px 5%; }
+        .section-title { font-size: 1.8rem; margin-bottom: 40px; font-weight: 700; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
-        .product-info { padding: 25px; }
-        .product-info h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; }
-        .product-info .desc { font-size: 0.9rem; color: #666; margin-bottom: 15px; line-height: 1.4; }
-        .product-info .url { font-size: 0.8rem; color: #999; word-break: break-all; margin-bottom: 20px; }
+        .product-card { border-radius: 15px; overflow: hidden; transition: 0.3s; border: 1px solid #eee; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .p-img { width: 100%; aspect-ratio: 1/1; background: #eee; position: relative; }
+        .p-img img { width: 100%; height: 100%; object-fit: cover; }
         
-        .product-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px; }
-        .price { font-size: 1.3rem; font-weight: 700; }
-        .buy-btn { background: var(--accent-color); color: #fff; border: none; padding: 10px 25px; border-radius: 4px; font-weight: 600; cursor: pointer; text-decoration: none; }
+        .p-content { padding: 25px; }
+        .p-tag { color: var(--point-blue); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; display: block; }
+        .p-content h3 { font-size: 1.2rem; margin-bottom: 15px; }
+        
+        /* 구매욕구 자극 코멘트 영역 */
+        .my-comment { background: #f9f9f9; padding: 15px; border-radius: 10px; font-size: 0.9rem; color: #666; margin-bottom: 20px; border-left: 4px solid var(--point-blue); }
+        
+        .buy-btn { display: block; width: 100%; background: var(--main-black); color: #fff; text-align: center; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: 700; transition: 0.3s; }
+        .buy-btn:hover { background: var(--point-blue); }
+
+        footer { padding: 60px 5%; background: #111; color: #888; text-align: center; font-size: 0.8rem; }
+        .legal { margin-top: 20px; line-height: 1.8; }
 
         @media (max-width: 768px) {
-            .top-section { flex-direction: column; align-items: center; }
-            .circle-item { margin-bottom: 30px; }
+            .best-pick { flex-direction: column; text-align: center; }
+            .best-info h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -56,89 +55,59 @@
 
 <header>
     <div class="logo">STORY PULSE</div>
-    <div class="nav-menu">
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">Journal</a>
-        <a href="#">Youtube</a>
-        <i class="bi bi-cart3 cart-icon"></i>
-    </div>
+    <div class="nav">SHOP | JOURNAL | YOUTUBE</div>
 </header>
 
-<div class="top-section">
-    <div class="circle-item">
-        <div class="circle-img">
-            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400" alt="Design Note">
-        </div>
-        <h4>DESIGN NOTE</h4>
-        <p>우리의 브랜드 제작기</p>
+<section class="best-pick">
+    <div class="best-img">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800" alt="Best Item">
     </div>
-    <div class="circle-item">
-        <div class="circle-img">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Review">
-        </div>
-        <h4>BEST REVIEW</h4>
-        <p>시청자가 뽑은 최고의 아이템</p>
+    <div class="best-info">
+        <span class="badge">MUST HAVE</span>
+        <h2>유튜브에서 문의 폭주한<br>그 셋업, 드디어 찾았습니다.</h2>
+        <p>"단순히 예뻐서가 아니라, 세탁 후에도 변형이 없는 게 제일 만족스러웠어요. 0원 창업 초기 비용을 아껴준 가성비 갑 아이템입니다."</p>
+        <a href="쿠팡링크" class="buy-btn" style="width: 250px;">실시간 가격 확인하기</a>
     </div>
-    <div class="circle-item">
-        <div class="circle-img">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400" alt="Shipment">
-        </div>
-        <h4>TODAY'S SHIPMENT</h4>
-        <p>오늘의 출고 현황</p>
-    </div>
-</div>
+</section>
 
-<div class="section-title">PRODUCT SECTION 2</div>
-
-<div class="product-container">
+<section class="list-section">
+    <h2 class="section-title">Video Items.</h2>
     <div class="product-grid">
+        
         <div class="product-card">
-            <div class="product-img">
-                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500" alt="Product">
-            </div>
-            <div class="product-info">
-                <h3>4. Story Select 01</h3>
-                <p class="desc">0원 창업 도전 프로젝트의 첫 번째 엄선 제품</p>
-                <p class="url">https://storypulse.shop/product/01</p>
-                <div class="product-footer">
-                    <span class="price">1,700</span>
-                    <a href="#" class="buy-btn">BUY BUTTON</a>
+            <div class="p-img"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500"></div>
+            <div class="p-content">
+                <span class="p-tag">BEST FOR OFFICE</span>
+                <h3>에센셜 화이트 코튼 셔츠</h3>
+                <div class="my-comment">
+                    "비침이 적고 깃이 탄탄해서 좋아요. 촬영할 때 조명을 잘 받는 화이트 컬러입니다."
                 </div>
+                <a href="쿠팡링크" target="_blank" class="buy-btn">후기 및 가격 보기</a>
             </div>
         </div>
 
         <div class="product-card">
-            <div class="product-img">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=500" alt="Product">
-            </div>
-            <div class="product-info">
-                <h3>3. Daily Pulse Wear</h3>
-                <p class="desc">매일의 움직임을 가볍게 만들어주는 데일리 룩</p>
-                <p class="url">https://storypulse.shop/product/02</p>
-                <div class="product-footer">
-                    <span class="price">3,100</span>
-                    <a href="#" class="buy-btn">BUY BUTTON</a>
+            <div class="p-img"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=500"></div>
+            <div class="p-content">
+                <span class="p-tag">DAILY ITEM</span>
+                <h3>슬림핏 생지 데님 팬츠</h3>
+                <div class="my-comment">
+                    "생지 특유의 빳빳함이 살아있어요. 다리가 길어 보여서 제가 데일리로 입는 바지입니다."
                 </div>
+                <a href="쿠팡링크" target="_blank" class="buy-btn">후기 및 가격 보기</a>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="product-img">
-                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500" alt="Product">
-            </div>
-            <div class="product-info">
-                <h3>3. Essential Kit</h3>
-                <p class="desc">창업가들을 위한 가장 기본적인 패션 에센셜</p>
-                <p class="url">https://storypulse.shop/product/03</p>
-                <div class="product-footer">
-                    <span class="price">2,200</span>
-                    <a href="#" class="buy-btn">BUY BUTTON</a>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
+</section>
+
+<footer>
+    <p>STORY PULSE SELECT SHOP</p>
+    <div class="legal">
+        이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.<br>
+        모든 상품의 가격은 실시간으로 변동될 수 있습니다.
+    </div>
+</footer>
 
 </body>
 </html>
