@@ -1,44 +1,144 @@
-# storypulse-web
-0원으로 시작하는 브랜드 도전기, Story Pulse 공식 홈페이지
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Story Pulse | 0원 창업 본부</title>
+    <title>Story Pulse | Fashion Select Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
     <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; color: #333; background: #f4f4f4; }
-        header { background: #1a2a6c; color: white; padding: 3rem 1rem; text-align: center; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 1rem; background: white; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .status-badge { background: #ff4b2b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
-        .product-card { border: 1px solid #eee; padding: 1.5rem; border-radius: 10px; text-align: center; margin-top: 2rem; }
-        .btn { display: inline-block; background: #1a2a6c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 15px; }
-        footer { text-align: center; padding: 2rem; color: #888; font-size: 0.8rem; }
+        :root { --bg-color: #ffffff; --text-color: #111111; --accent-color: #007AFF; --card-bg: #f9f9f9; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg-color); color: var(--text-color); }
+
+        /* 상단 네비게이션 */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; position: sticky; top: 0; background: #fff; z-index: 1000; border-bottom: 1px solid #eee; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+        .nav-menu a { text-decoration: none; color: #333; margin-left: 20px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; }
+        .cart-icon { font-size: 1.3rem; margin-left: 20px; cursor: pointer; }
+
+        /* 상단 원형 카테고리/노트 섹션 */
+        .top-section { display: flex; justify-content: center; gap: 40px; padding: 60px 5%; background: #fff; text-align: center; }
+        .circle-item { width: 220px; }
+        .circle-img { width: 180px; height: 180px; border-radius: 50%; background: #eee; margin: 0 auto 15px; overflow: hidden; }
+        .circle-img img { width: 100%; height: 100%; object-fit: cover; }
+        .circle-item h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .circle-item p { font-size: 0.85rem; color: #888; }
+
+        /* 상품 섹션 타이틀 */
+        .section-title { padding: 40px 5% 20px; font-size: 1.5rem; font-weight: 700; border-top: 15px solid #f4f4f4; }
+
+        /* 상품 리스트 그리드 */
+        .product-container { background: #f4f4f4; padding: 20px 5% 80px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .product-img { width: 100%; aspect-ratio: 1/1.1; background: #ddd; overflow: hidden; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .product-img:hover img { transform: scale(1.05); }
+        
+        .product-info { padding: 25px; }
+        .product-info h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; }
+        .product-info .desc { font-size: 0.9rem; color: #666; margin-bottom: 15px; line-height: 1.4; }
+        .product-info .url { font-size: 0.8rem; color: #999; word-break: break-all; margin-bottom: 20px; }
+        
+        .product-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px; }
+        .price { font-size: 1.3rem; font-weight: 700; }
+        .buy-btn { background: var(--accent-color); color: #fff; border: none; padding: 10px 25px; border-radius: 4px; font-weight: 600; cursor: pointer; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .top-section { flex-direction: column; align-items: center; }
+            .circle-item { margin-bottom: 30px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Story Pulse</h1>
-    <p>우리의 도전이 모여 하나의 브랜드가 되는 곳</p>
+    <div class="logo">STORY PULSE</div>
+    <div class="nav-menu">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Journal</a>
+        <a href="#">Youtube</a>
+        <i class="bi bi-cart3 cart-icon"></i>
+    </div>
 </header>
 
-<div class="container">
-    <span class="status-badge">LIVE 도전 중</span>
-    <h2>🚀 0원 창업 프로젝트 현황</h2>
-    <p>현재 깃허브를 통해 <b>서버비 0원</b> 홈페이지를 구축 완료했습니다.</p>
-    <p>이곳에서 제가 찾은 소싱 정보와 창업 일지를 투명하게 공유할 예정입니다.</p>
-
-    <div class="product-card">
-        <h3>📦 첫 번째 공유 아이템 (준비중)</h3>
-        <p>유튜브 채널에서 함께 고른 첫 상품이 곧 업로드됩니다.</p>
-        <a href="https://www.youtube.com/@StoryPulse_Zero" class="btn">유튜브에서 소식 받기</a>
+<div class="top-section">
+    <div class="circle-item">
+        <div class="circle-img">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400" alt="Design Note">
+        </div>
+        <h4>DESIGN NOTE</h4>
+        <p>우리의 브랜드 제작기</p>
+    </div>
+    <div class="circle-item">
+        <div class="circle-img">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Review">
+        </div>
+        <h4>BEST REVIEW</h4>
+        <p>시청자가 뽑은 최고의 아이템</p>
+    </div>
+    <div class="circle-item">
+        <div class="circle-img">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400" alt="Shipment">
+        </div>
+        <h4>TODAY'S SHIPMENT</h4>
+        <p>오늘의 출고 현황</p>
     </div>
 </div>
 
-<footer>
-    <p>&copy; 2025 Story Pulse. Powered by GitHub Pages.</p>
-</footer>
+<div class="section-title">PRODUCT SECTION 2</div>
+
+<div class="product-container">
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-img">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500" alt="Product">
+            </div>
+            <div class="product-info">
+                <h3>4. Story Select 01</h3>
+                <p class="desc">0원 창업 도전 프로젝트의 첫 번째 엄선 제품</p>
+                <p class="url">https://storypulse.shop/product/01</p>
+                <div class="product-footer">
+                    <span class="price">1,700</span>
+                    <a href="#" class="buy-btn">BUY BUTTON</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=500" alt="Product">
+            </div>
+            <div class="product-info">
+                <h3>3. Daily Pulse Wear</h3>
+                <p class="desc">매일의 움직임을 가볍게 만들어주는 데일리 룩</p>
+                <p class="url">https://storypulse.shop/product/02</p>
+                <div class="product-footer">
+                    <span class="price">3,100</span>
+                    <a href="#" class="buy-btn">BUY BUTTON</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500" alt="Product">
+            </div>
+            <div class="product-info">
+                <h3>3. Essential Kit</h3>
+                <p class="desc">창업가들을 위한 가장 기본적인 패션 에센셜</p>
+                <p class="url">https://storypulse.shop/product/03</p>
+                <div class="product-footer">
+                    <span class="price">2,200</span>
+                    <a href="#" class="buy-btn">BUY BUTTON</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
